@@ -35,6 +35,7 @@ INSTALLED_APPS = (
     'django.contrib.humanize',
 
     'opbeat.contrib.django',
+    'lettuce.django',
 
     'talks',
     'companies',

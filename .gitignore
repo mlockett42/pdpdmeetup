@@ -69,3 +69,5 @@ local/
 # Local database
 db.sqlite3
 
+# Local media uploads
+pdpdmeetup/media/

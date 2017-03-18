@@ -7,3 +7,7 @@ psycopg2==2.6.1
 whitenoise==2.0.6
 meetup-api==0.1.1
 pytz==2016.6.1
+python-Levenshtein==0.12
+git+https://github.com/gabrielfalcao/lettuce.git@6d68a72e3b89f6f05d7805845b61cd15be3ac6ce
+lxml==3.7.3
+
