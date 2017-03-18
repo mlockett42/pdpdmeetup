@@ -30,6 +30,21 @@ Add heroku remote URL:
 Deploy! (Probably fail if you don't have permission on Heroku, please ask Matt for access)
 - `git push heroku master`
 
+Development
+===========
+
+Change to the root directory of the repo
+- `cd ~/pdpdmeetup`
+
+Build the virtualenv
+- `virtualenv .`
+- `source bin\activate`
+- `pip install -r requirements.txt`
+- `python manage.py migrate`
+
+
+
+
 
 Other useful info (especially for beginners)
 ============================================
