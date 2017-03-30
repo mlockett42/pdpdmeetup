@@ -4,13 +4,13 @@ from django.core.validators import MaxLengthValidator, RegexValidator
 import datetime
 
 name_validation = RegexValidator(r"^[A-Za-z ]{1,100}$")
-abn_validation = RegexValidator(r"^[0-9]{11,11}$")
+abn_validation = RegexValidator(r"^[0-9]{11,11}$|^$")
 description_validation = RegexValidator(r"^[A-Za-z0-9 .\"'?!,@$-]{1,200}$")
 
 
 class CompanyForm(forms.Form):
     name = forms.CharField(validators=[name_validation])
-    abn = forms.CharField(validators=[abn_validation])
+    abn = forms.CharField(validators=[abn_validation],required=False)
     description = forms.CharField(widget=forms.Textarea, validators=[description_validation],required=False)
     logo = forms.ImageField(required=False)
 
