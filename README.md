@@ -38,11 +38,18 @@ Change to the root directory of the repo
 
 Build the virtualenv
 - `virtualenv .`
-- `source bin\activate`
+- `source bin/activate`
 - `pip install -r requirements.txt`
 - `python manage.py migrate`
 
+Run the web server locally
+- `python manage.py runserver`
 
+Lettuce tests
+=============
+
+To run the BDD tests
+- `python manage.py harvest --debug-mode`
 
 
 

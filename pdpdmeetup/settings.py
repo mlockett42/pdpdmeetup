@@ -12,6 +12,9 @@ https://docs.djangoproject.com/en/1.9/ref/settings/
 import os
 import dj_database_url
 
+# Set DEBUG to true if developing (so opbeat doesn't get our local errors)
+DEBUG = True
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
@@ -34,7 +37,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.humanize',
 
-    'opbeat.contrib.django',
+    #'opbeat.contrib.django',
     'lettuce.django',
 
     'talks',
@@ -46,8 +49,16 @@ INSTALLED_APPS = (
 
 )
 
-MIDDLEWARE_CLASSES = (
-    'opbeat.contrib.django.middleware.OpbeatAPMMiddleware',
+
+MIDDLEWARE_CLASSES = []
+
+if not DEBUG:
+    MIDDLEWARE_CLASSES += [
+        'opbeat.contrib.django.middleware.OpbeatAPMMiddleware',
+    ]
+
+MIDDLEWARE_CLASSES += [
+    #'opbeat.contrib.django.middleware.OpbeatAPMMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -56,7 +67,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.security.SecurityMiddleware',
-)
+]
 
 ROOT_URLCONF = 'pdpdmeetup.urls'
 
@@ -141,4 +152,4 @@ MEDIA_ROOT = os.path.join(PROJECT_ROOT, 'media')
 # https://warehouse.python.org/project/whitenoise/
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
-DEBUG = 'true'
+

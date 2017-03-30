@@ -28,7 +28,9 @@
 		{% for obj in object_list %}
 
 		    <div id='thumbnail_{{ obj.id }}' class="thumbnail">
+              {% if obj.logo %}
 		      <img src="{{ obj.logo.url }}" alt="logo">
+              {% endif %}
 		      <div class="caption">
 		        <h3>{{ obj.name }}</h3>
 		        

@@ -11,8 +11,8 @@ description_validation = RegexValidator(r"^[A-Za-z0-9 .\"'?!,@$-]{1,200}$")
 class CompanyForm(forms.Form):
     name = forms.CharField(validators=[name_validation])
     abn = forms.CharField(validators=[abn_validation])
-    description = forms.CharField(widget=forms.Textarea, validators=[description_validation])
-    logo = forms.ImageField()
+    description = forms.CharField(widget=forms.Textarea, validators=[description_validation],required=False)
+    logo = forms.ImageField(required=False)
 
 
 class CompanyEditForm(forms.Form):

@@ -16,12 +16,13 @@ def company_create(request):
     form = CompanyForm(request.POST or None, request.FILES or None)
 
     if form.is_valid():
-        Company.objects.create(
-            name=form.cleaned_data.get("name"),
-            abn=form.cleaned_data.get("abn"),
-            description=form.cleaned_data.get("description"),
-            logo=request.FILES['logo']
-        )
+        company = Company()
+        company.name=form.cleaned_data.get("name")
+        company.abn=form.cleaned_data.get("abn")
+        company.description=form.cleaned_data.get("description")
+        if request.FILES.has_key('logo'):
+            company.logo=request.FILES['logo']
+        company.save()
 
         messages.success(request, 'Record successfully created')
 
