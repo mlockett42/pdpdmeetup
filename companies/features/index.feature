@@ -13,7 +13,7 @@ Feature: Adding a company
         Then I see the content "Create a new Company"
         When I create the company
         | name             | abn         | description | image |
-        | Test Company One | 12345678901 |             |       |
+        | Test Company One |             |             |       |
         Then I see the content "Record successfully created"
 
     Scenario: Adding a company with bad abn fails
@@ -21,6 +21,6 @@ Feature: Adding a company
         Then I see the content "Create a new Company"
         When I create the company
         | name             | abn         | description | image |
-        | Test Company One | 12345678901 |             |       |
+        | Test Company One | 1           |             |       |
         Then I do not see the content "Record successfully created"
 
