@@ -15,7 +15,7 @@ def access_url(step, url):
 
 @step(u'Then I see the content "([^"]*)"')
 def then_i_see_the_content_group1(step, content):
-    assert content in world.content.decode('utf-8')#, 'Content \'{0}\' not found in {1}'.format(content, world.content)
+    assert content in world.content.decode('utf-8'), 'Content \'{0}\' not found in {1}'.format(content, world.content)
 
 @step(u'When I create the company')
 def when_i_create_the_company_group1_with_abn_group2(step):
